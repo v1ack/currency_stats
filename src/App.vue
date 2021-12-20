@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import Currency from './components/Currency.vue'</script>
+import Currency from "./components/Currency.vue"
+</script>
 
 <template>
-  <Currency/>
+  <Currency />
 </template>
 
 <style>
@@ -10,6 +11,5 @@ import Currency from './components/Currency.vue'</script>
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 </style>

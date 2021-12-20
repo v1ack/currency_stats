@@ -1,5 +1,5 @@
-import {defineConfig} from 'vite'
-import vue from '@vitejs/plugin-vue'
+import { defineConfig } from "vite"
+import vue from "@vitejs/plugin-vue"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -7,11 +7,11 @@ export default defineConfig({
 
   server: {
     proxy: {
-      '/XML_daily.asp': {
-        target: 'https://cbr.ru/scripts/XML_daily.asp',
+      "/XML_daily.asp": {
+        target: "https://cbr.ru/scripts/XML_daily.asp",
         changeOrigin: true,
-        secure: false
-      }
-    }
-  }
+        secure: false,
+      },
+    },
+  },
 })
