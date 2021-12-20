@@ -44,7 +44,7 @@ async function loadData() {
     data = await Promise.all(datesList.map((date) => currenciesByDate(date)))
   } else {
     let datesListSet = new Set(datesList.map((i) => i.toDateString()))
-    data = await fetch("/list.json").then((r) => r.json())
+    data = await fetch("/currency_stats/list.json").then((r) => r.json())
     data.forEach((i) => (i["x"] = new Date(i["x"])))
     data = data.filter((i) => datesListSet.has(i.x.toDateString()))
   }
