@@ -75,21 +75,35 @@ onMounted(loadData)
       <LineChart :chartData="list" :options="options" />
     </div>
     <div class="panel">
+      <h2>Параметры</h2>
       <div>
         <div>Загрузка данных из</div>
-        <label>
-          <input
-            v-model="loadFrom"
-            name="load_from"
-            type="radio"
-            value="static"
-          />
-          Сохраненных данных
-        </label>
-        <label>
-          <input v-model="loadFrom" name="load_from" type="radio" value="api" />
-          API ЦБ РФ
-        </label>
+        <div class="panel__radio">
+          <label
+            :class="{ checked: loadFrom === 'static' }"
+            class="panel__radio__label"
+          >
+            <input
+              v-model="loadFrom"
+              name="load_from"
+              type="radio"
+              value="static"
+            />
+            <span>Сохраненных данных</span>
+          </label>
+          <label
+            :class="{ checked: loadFrom === 'api' }"
+            class="panel__radio__label"
+          >
+            <input
+              v-model="loadFrom"
+              name="load_from"
+              type="radio"
+              value="api"
+            />
+            <span>API ЦБ РФ</span>
+          </label>
+        </div>
       </div>
       <div class="panel__inputs">
         <label>
@@ -111,7 +125,63 @@ onMounted(loadData)
   grid-template-columns: 1fr 300px;
 }
 
+@media (max-width: 900px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
 .panel__inputs label {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.panel__inputs input {
+  border: none;
+  border-bottom: 2px solid aquamarine;
+  width: 40px;
+  text-align: right;
+  font-size: 16px;
+}
+
+.panel h2 {
+  text-align: center;
+}
+
+.panel__radio {
+  margin: 4px 0 8px;
+  display: flex;
+  align-content: space-around;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.panel__radio__label {
+  display: flex;
+  border: 2px solid aquamarine;
+  width: 50%;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4px;
+  font-size: 14px;
+}
+
+.panel__radio__label:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.panel__radio__label:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.panel__radio__label input[type="radio"] {
+  display: none;
+}
+
+.panel__radio__label.checked {
+  background-color: aquamarine;
 }
 </style>
